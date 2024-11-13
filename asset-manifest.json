@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/algor/static/css/main.2cecf2a3.css",
+    "main.js": "/algor/static/js/main.76779967.js",
+    "static/js/453.e6786ef6.chunk.js": "/algor/static/js/453.e6786ef6.chunk.js",
+    "index.html": "/algor/index.html",
+    "main.2cecf2a3.css.map": "/algor/static/css/main.2cecf2a3.css.map",
+    "main.76779967.js.map": "/algor/static/js/main.76779967.js.map",
+    "453.e6786ef6.chunk.js.map": "/algor/static/js/453.e6786ef6.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.2cecf2a3.css",
+    "static/js/main.76779967.js"
+  ]
+}
