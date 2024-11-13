@@ -1,0 +1,97 @@
+.resizable-panel {
+    transition: width 0.3s;
+    height: 100vh;
+    background-color: #f4f4f4;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+  
+  .collapse-btn {
+    align-self: flex-start;
+  }
+  
+  .task-list {
+    height: 20%;
+    overflow-y: auto;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .task-items {
+    list-style-type: none;
+    padding: 0;
+    display: grid;
+    gap: 5px;
+  }
+  
+  .task-item {
+    padding: 5px;
+    cursor: pointer;
+  }
+  
+  .task-item.selected {
+    background-color: #ddd;
+  }
+  
+  .task-content {
+    flex: 2;
+    padding: 10px;
+    overflow-y: auto;
+  }
+  
+  .task-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .resizer {
+    width: 5px;
+    cursor: ew-resize;
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    background-color: #ccc;
+  }
+  
+  .test-count {
+    margin-top: 10px;
+    font-weight: bold;
+  }
+
+  .test {
+    border-bottom: 2px solid #bbb;
+    margin-bottom: 25px;
+    margin-left: 35px;
+  }
+  
+  .test.count {
+    font-weight: bold;
+  }
+  
+  .test .ok {
+    color: blue;
+    font-weight: normal;
+  }
+  
+  .test .ok::before {
+    content: '✅ ';
+    color: green;
+    margin-left: -27px;
+  }
+  
+  .test .failed {
+    color: red;
+    font-weight: normal;
+  }
+  
+  .test .failed::before {
+    content: '❌ ';
+    color: darkred;
+    margin-left: -27px;
+  }
+  
