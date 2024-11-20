@@ -8,6 +8,7 @@ import {
   applyNodeChanges,
   applyEdgeChanges,
   addEdge,
+  // useReactFlow,
 } from '@xyflow/react';
 import '@xyflow/react/dist/style.css';
 
@@ -47,8 +48,9 @@ const initialEdges = [];
 const DiagramArea = ({ setCode }) => {
   const [nodes, setNodes] = useState(initialNodes);
   const [edges, setEdges] = useState(initialEdges);
+  const [rfInstance, setRfInstance] = useState(null);
+  //const {setViewport} = useReactFlow();
   const [results, setResults] = useState('');
-
 
   const onNodesChange = useCallback(
     (changes) => setNodes((nds) => applyNodeChanges(changes, nds)),
@@ -67,6 +69,28 @@ const DiagramArea = ({ setCode }) => {
   //   const collectedText = collectTextByConnections(nodes, edges, addStatementsTest);
   //   setCode(collectedText);
   // }, [edges, nodes])
+
+  const onSave = useCallback(() => {
+    if (rfInstance) {
+      const flow = rfInstance.toObject();
+      localStorage.setItem('flow', JSON.stringify(flow));
+    }
+  }, [rfInstance]);
+
+  const onRestore = useCallback(() => {
+    const restoreFlow = async () => {
+      const flow = JSON.parse(localStorage.getItem('flow'));
+
+      if (flow) {
+        // const { x = 0, y = 0, zoom = 1 } = flow.viewport;
+        setNodes(flow.nodes || []);
+        setEdges(flow.edges || []);
+        //setViewport({ x, y, zoom });
+      }
+    };
+
+    restoreFlow();
+  }, [setNodes]);
 
   const addBlock = useCallback(
     (item, clientOffset) => {
@@ -119,6 +143,8 @@ const DiagramArea = ({ setCode }) => {
       <div style={{ position: 'absolute', top: '10px', right: '10px', zIndex: 10 }}>
         <button onClick={handleRunCode} disabled={!nodes.length || !edges.length}>Виконати</button>
         <button onClick={handleTestCode} disabled={!nodes.length || !edges.length}>Тест</button>
+        <button onClick={onSave} disabled={!nodes.length || !edges.length}>Зберегти</button>
+        <button onClick={onRestore}>Відновити</button>
       </div>
       <ReactFlow
         nodes={nodes}
@@ -127,6 +153,7 @@ const DiagramArea = ({ setCode }) => {
         edges={edges}
         onEdgesChange={onEdgesChange}
         onConnect={onConnect}
+        onInit={setRfInstance}
         fitView
       >
         <Background />

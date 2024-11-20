@@ -54,21 +54,21 @@ const EditableTextarea = ({ label, onLabelChange }) => {
 };
 
 export const BeginNode = ({ data }) => (
-  <div style={{ ...commonNodeStyle, alignItems: 'center', borderRadius: '120px', background: '#FFD700', width: '120px', height: '60px', border: '2px solid black' }}>
+  <div style={{ ...commonNodeStyle, alignItems: 'center', borderRadius: '120px', background: '#FFD700', width: '150px', height: '60px', border: '2px solid black' }}>
     {data.label}
     <Handle type="source" position={Position.Bottom} />
   </div>
 );
 
 export const EndNode = ({ data }) => (
-  <div style={{ ...commonNodeStyle, alignItems: 'center', borderRadius: '120px', background: '#FFD700', width: '120px', height: '60px', border: '2px solid black' }}>
+  <div style={{ ...commonNodeStyle, alignItems: 'center', borderRadius: '120px', background: '#FFD700', width: '150px', height: '60px', border: '2px solid black' }}>
     {data.label}
     <Handle type="target" position={Position.Top} />
   </div>
 );
 
 export const RectangleNode = ({ data }) => (
-  <div style={{ ...handleStyle, background: '#ADD8E6', border: '1px solid black', width: '140px', height: '80px' }}>
+  <div style={{ ...handleStyle, background: '#ADD8E6', border: '1px solid black', width: '150px', height: '70px' }}>
     <EditableTextarea label={data.label} onLabelChange={(value) => (data.label = value)} />
     <Handle type="target" position={Position.Top} />
     <Handle type="source" position={Position.Bottom} />
@@ -76,7 +76,7 @@ export const RectangleNode = ({ data }) => (
 );
 
 export const InputNode = ({ data }) => (
-  <div style={{ width: '160px', height: '80px' }}>
+  <div style={{ width: '170px', height: '80px' }}>
     <div style={{ ...handleStyle, background: '#000', clipPath: clipPaths.inOut }}>
       <div style={{ ...commonNodeStyle, background: '#FFB6C1', clipPath: clipPaths.inOut }}>
         <EditableTextarea label={data.label} onLabelChange={(value) => (data.label = value)} />
@@ -88,7 +88,7 @@ export const InputNode = ({ data }) => (
 );
 
 export const OutputNode = ({ data }) => (
-  <div style={{ width: '160px', height: '80px' }}>
+  <div style={{ width: '170px', height: '80px' }}>
     <div style={{ ...handleStyle, background: '#000', clipPath: clipPaths.inOut }}>
       <div style={{ ...commonNodeStyle, background: '#FFB6C1', clipPath: clipPaths.inOut }}>
         <EditableTextarea label={data.label} onLabelChange={(value) => (data.label = value)} />
@@ -100,7 +100,7 @@ export const OutputNode = ({ data }) => (
 );
 
 export const DiamondNode = ({ data }) => (
-  <div style={{ width: '120px', height: '120px' }}>
+  <div style={{ width: '130px', height: '130px' }}>
     <div style={{ ...handleStyle, background: '#000', clipPath: clipPaths.diamond }}>
       <div style={{ ...commonNodeStyle, background: '#90EE90', clipPath: clipPaths.diamond }}>
         <EditableTextarea label={data.label} onLabelChange={(value) => (data.label = value)} />
@@ -113,7 +113,7 @@ export const DiamondNode = ({ data }) => (
 );
 
 export const LoopStartNode = ({ data }) => (
-  <div style={{ width: '160px', height: '80px' }}>
+  <div style={{ width: '150px', height: '80px' }}>
     <div style={{ ...handleStyle, background: '#000', clipPath: clipPaths.loopStart }}>
       <div style={{ ...commonNodeStyle, background: '#FFE4B5', clipPath: clipPaths.loopStart }}>
         <EditableTextarea label={data.label} onLabelChange={(value) => (data.label = value)} />
@@ -125,9 +125,9 @@ export const LoopStartNode = ({ data }) => (
 );
 
 export const LoopEndNode = ({ data }) => (
-  <div style={{ width: '160px', height: '80px' }}>
+  <div style={{ width: '150px', height: '80px' }}>
     <div style={{ ...handleStyle, background: '#000', clipPath: clipPaths.loopEnd }}>
-      <div style={{ ...commonNodeStyle, background: '#FFE4B5', clipPath: clipPaths.loopEnd }}>
+      <div style={{ ...commonNodeStyle, background: '#FFE4B5', clipPath: clipPaths.loopEnd, alignItems: 'center' }}>
         {data.label}
       </div>
     </div>
